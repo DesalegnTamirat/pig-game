@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pig Game</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Pig Game</h1>
+        <nav>
+            <ul class="mobile-nav">
+                <li><a href="#" aria-label="Go to Home">Home</a></li>
+                <li><a href="#" class="link-rules" aria-label="View Rules">Rules</a></li>
+                <li><a href="#" class="link-about" aria-label="About the Game">About</a></li>
+            </ul>
+            <ion-icon name="grid-outline" class="menu-icon" aria-label="Menu"></ion-icon>
+        </nav>
+    </header>
+
+    <main style="position: relative;">
+        <section class="player player--0" aria-labelledby="player1">
+            <h2 id="player1">Player 1</h2>
+            <p class="score" id="score--0" aria-live="polite">0</p>
+            <p class="current">Current: <span id="current--0">0</span></p>
+        </section>
+
+        <section class="player player--1" aria-labelledby="player2">
+            <h2 id="player2">Player 2</h2>
+            <p class="score" id="score--1" aria-live="polite">0</p>
+            <p class="current">Current: <span id="current--1">0</span></p>
+        </section>
+
+        <div class="controls">
+            <button id="btn--roll" aria-label="Roll the Dice">🎲 Roll Dice</button>
+            <button id="btn--hold" aria-label="Hold the Score">📥 Hold</button>
+            <button id="btn--new" aria-label="Start a New Game">🔄 New Game</button>
+        </div>
+        
+        <img class="dice" src="/images/dice-5.png" alt="Dice showing number 5" aria-hidden="true">
+    </main>
+
+    <div class="rules hidden" aria-labelledby="rules-title">
+        <h2 id="rules-title">The Rules of Pig Game</h2>
+        <ol>
+            <li>The game has 2 players, playing in rounds.</li>
+            <li>In each turn, a player rolls a dice as many times as they wish. Each result gets added to their current score.</li>
+            <li>If the player rolls a 1, all their current score for that round is lost, and it's the next player's turn.</li>
+            <li>The player can choose to 'Hold' their current score, which gets added to their total score. After that, it's the next player's turn.</li>
+            <li>The first player to reach 100 points on the total score wins the game.</li>
+        </ol>
+    </div>
+
+    <div class="firework-overlay" id="rocket"></div>
+
+    <footer>
+        <p>Created by <span>Desalegn Tamirat</span></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
