@@ -69,7 +69,7 @@ btnHold.addEventListener('click', function () {
         document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
 
         // 2. Check if player's score is >= 100
-        if (scores[activePlayer] >= 10) {
+        if (scores[activePlayer] >= 100) {
             // Finish the game
             playing = false;
             document.querySelector(`.player--${activePlayer}`).classList.add('winner');
@@ -108,20 +108,32 @@ function showFireworks() {
 }
 
 
-function showRules(e) {
-  document.querySelector(".rules").classList.remove("hidden");
+function showSection(e, section) {
+  console.log(section);
+  document.querySelector(`.${section}`).classList.remove("hidden");
+  if(section === "rules") 
+    document.querySelector(`.about`).classList.add("hidden")
+  
+  else if(section === "about") 
+    document.querySelector(`.rules`).classList.add("hidden")
+  
   e.stopPropagation();
 }
 
-function closeRules(e) {
-  console.log("one step");
-  if(document.querySelector(".rules").contains(e.target) || e.target.innerHTML === "Rules") return;
-  document.querySelector(".rules").classList.add("hidden");
+
+function closeSection(e, section) {
+  console.log(section);
+  if(document.querySelector(`.${section}`).contains(e.target)) return;
+  document.querySelector(`.${section}`).classList.add("hidden");
 }
 
-document.querySelector(".link-rules").addEventListener("click", showRules);
 
-document.body.addEventListener("click", closeRules)
+
+document.querySelector(".link-rules").addEventListener("click", (e) => showSection(e, "rules"));
+document.querySelector(".link-about").addEventListener("click", (e) => showSection(e, "about"));
+
+document.body.addEventListener("click", (e) => closeSection(e, "rules"));
+document.body.addEventListener("click", (e) => closeSection(e, "about"));
 
 
 document.querySelector(".menu-icon").addEventListener("click", function() {
